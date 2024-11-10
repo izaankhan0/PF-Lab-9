@@ -1,34 +1,28 @@
 #include<stdio.h>
 
 void main(){
-	int n;
-	int o = 0;
-	printf("Enter N: ");
-	scanf("%d", &n);
-	int rows = (n) + 1;
-	int col = n + 2;
-	//Part 1
-	for(int i = 0; i < rows; i++){
-		o++;
-		for(int j = 0; j < (col - o); j++){
-			printf(". ");
-		}
-		for(int f = 0; f < o; f++){
-			printf("O");
-		}
-		printf("\n");
+	int boltsP = 5, nutsP = 3, washersP = 1, nuts, washers, bolts, flag = 0;
+	printf("Enter number of Nuts:      ");
+	scanf("%d", &nuts);
+	printf("Enter number of Washers:   ");
+	scanf("%d", &washers);
+	printf("Enter number of Bolts:     ");
+	scanf("%d", &bolts);
+	printf("\n");
+	
+	int total = (bolts * boltsP) + (washers * washersP) + (nuts * nutsP);
+	
+	if (nuts < bolts){
+		printf("Check the Order: too few nuts");
+		flag = 1;
 	}
-	//Part 2
-	int z = n + 1;
-	for(int i = 1; i < rows; i++){
-		z--;
-		for(int j = 0; j < (col - z); j++){
-			printf(". ");
-		}
-		for(int f = 0; f < z; f++){
-			printf("O");
-		}
-		printf("\n");
+	if ((2 * washers) < bolts){
+		printf("Check the Order: too few washers");
+		flag = 1;
+	}
+	if (flag == 0){
+		printf("Order is OK.");
 	}
 	
+	printf("\nTotal Cost: %d", total);
 }
